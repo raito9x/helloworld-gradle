@@ -1,1 +1,60 @@
 apply plugin: 'java'
+
+dependencies {
+    def springBootDependencyVersion = "${springBootVersion}"
+    def springCloudDependencyVersion = "3.1.1"
+    def springRetryDependencyVersion = "1.3.3"
+    def gsonDependencyVersion = "2.9.0"
+    def lombokDependencyVersion = "1.18.24"
+    def csCommonLibDependencyVersion = "0.0.629"
+    def apacheCommonLang3DependencyVersion = "3.11"
+    def guavaDependencyVersion = "28.1-jre"
+    def mySQLDependencyVersion = "5.1.49"
+    def swaggerDependencyVersion = "3.0.0"
+    def swaggerUIDependencyVersion = "2.9.2"
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation
+    implementation("org.springframework.boot:spring-boot-starter-validation:${springBootDependencyVersion}")
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+    implementation("org.springframework.boot:spring-boot-starter-web:${springBootDependencyVersion}")
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator
+    implementation("org.springframework.boot:spring-boot-starter-actuator:${springBootDependencyVersion}")
+    // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-config
+    implementation("org.springframework.cloud:spring-cloud-starter-config:${springCloudDependencyVersion}")
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-aop
+    implementation("org.springframework.boot:spring-boot-starter-aop:${springBootDependencyVersion}")
+    // https://mvnrepository.com/artifact/org.springframework.retry/spring-retry
+    implementation("org.springframework.retry:spring-retry:${springRetryDependencyVersion}")
+    // https://mvnrepository.com/artifact/com.google.code.gson/gson
+    implementation("com.google.code.gson:gson:${gsonDependencyVersion}")
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools
+    developmentOnly("org.springframework.boot:spring-boot-devtools:${springBootDependencyVersion}")
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compileOnly("org.projectlombok:lombok:${lombokDependencyVersion}")
+    annotationProcessor("org.projectlombok:lombok:${lombokDependencyVersion}")
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security
+    implementation("org.springframework.boot:spring-boot-starter-security:${springBootDependencyVersion}")
+    // https://mvnrepository.com/artifact/org.springframework.security.oauth.boot/spring-security-oauth2-autoconfigure
+    implementation("org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:${springBootDependencyVersion}")
+    implementation("com.google.guava:guava:${guavaDependencyVersion}")
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    implementation("org.apache.commons:commons-lang3:${apacheCommonLang3DependencyVersion}")
+    implementation("com.fusion.lib:fs-lib-common:${csCommonLibDependencyVersion}")
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa:${springBootDependencyVersion}")
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    implementation("mysql:mysql-connector-java:${mySQLDependencyVersion}")
+    //Caching
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //Swagger
+    implementation("io.springfox:springfox-swagger2:${swaggerDependencyVersion}")
+    implementation("io.springfox:springfox-swagger-ui:${swaggerUIDependencyVersion}")
+    implementation("io.springfox:springfox-bean-validators:${swaggerDependencyVersion}")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:1.3.2")
+    implementation ('org.hibernate:hibernate-core'){
+        version {
+            strictly '5.4.18.Final'
+        }
+    }
+
+}
